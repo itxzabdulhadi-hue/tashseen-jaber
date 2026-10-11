@@ -16,35 +16,17 @@ export default function Hero({ t }: HeroProps) {
   return (
     <section
       id="home"
-      className="hero-section relative flex w-full items-center overflow-hidden bg-midnight"
+      className="hero-section relative flex w-full flex-col items-center overflow-hidden bg-midnight md:flex-row md:items-center"
       aria-label="Hero"
     >
-      {/* A contained image panel keeps the opening section lighter and shorter. */}
-      <div className="absolute inset-0">
-        <div className="hero-image-panel">
-          <motion.img
-            initial={{ scale: 1.08, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            src="/images/hero-warehouse.webp"
-            alt="Refrigerated warehouse interior"
-            className="h-full w-full object-cover"
-            loading="eager"
-          />
-          <div className="hero-image-overlay absolute inset-0" />
-          <div className="mist-overlay mist-anim" />
-          <div className="icy-sweep" />
-        </div>
-      </div>
-
       {/* Architectural lines */}
       <div className="pointer-events-none absolute inset-0 opacity-15">
         <div className="absolute right-0 top-1/4 h-px w-full bg-gradient-to-r from-transparent via-glacier to-transparent" />
         <div className="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-glacier/40 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-8 pt-8 lg:px-12 lg:pb-10 lg:pt-10">
-        <div className="max-w-4xl lg:max-w-[50%]">
+      <div className="hero-content relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-8 pt-8 lg:px-12 lg:pb-10 lg:pt-10">
+        <div className="max-w-4xl md:max-w-[54%] lg:max-w-[50%]">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +39,7 @@ export default function Hero({ t }: HeroProps) {
           </motion.div>
 
           {/* Headline */}
-          <h1 className="font-display text-[clamp(2.5rem,4.6vw,4.5rem)] font-light leading-[0.98] tracking-[-0.02em] text-frost">
+          <h1 className="font-display text-[clamp(2.25rem,8.8vw,3.75rem)] font-light leading-[0.98] tracking-[-0.02em] text-frost md:text-[clamp(2.5rem,4.6vw,4.5rem)]">
             <motion.span
               initial={{ opacity: 0, y: 44 }}
               animate={{ opacity: 1, y: 0 }}
@@ -130,6 +112,22 @@ export default function Hero({ t }: HeroProps) {
             ))}
           </motion.div>
         </div>
+      </div>
+
+      {/* Stacks beneath the copy on mobile and balances it as a split panel on desktop. */}
+      <div className="hero-image-panel">
+        <motion.img
+          initial={{ scale: 1.08, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+          src="/images/hero-warehouse.webp"
+          alt="Refrigerated warehouse interior"
+          className="h-full w-full object-cover"
+          loading="eager"
+        />
+        <div className="hero-image-overlay absolute inset-0" />
+        <div className="mist-overlay mist-anim" />
+        <div className="icy-sweep" />
       </div>
 
       {/* Scroll indicator */}

@@ -20,6 +20,30 @@ const navItems = [
   { key: "contact", href: "#contact" },
 ] as const;
 
+function EmailIconLink({ email }: { email: string }) {
+  return (
+    <a
+      href={`mailto:${email}`}
+      title="Email"
+      aria-label={`Email ${email}`}
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-midnight/10 bg-midnight/[0.03] text-midnight/60 transition-all duration-300 hover:border-copper hover:bg-copper hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-copper-light focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+    >
+      <svg
+        width="17"
+        height="17"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        aria-hidden="true"
+      >
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </svg>
+    </a>
+  );
+}
+
 export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -66,25 +90,7 @@ export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
                 only={headerSocialKeys}
                 className="gap-1"
               />
-              <a
-                href={`mailto:${contactInfo.email}`}
-                title="Email"
-                aria-label={`Email ${contactInfo.email}`}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-midnight/10 bg-midnight/[0.03] text-midnight/60 transition-all duration-300 hover:border-copper hover:bg-copper hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-copper-light focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              >
-                <svg
-                  width="17"
-                  height="17"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </a>
+              <EmailIconLink email={contactInfo.email} />
             </div>
 
             <a
@@ -204,7 +210,10 @@ export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
                 <div className="eyebrow mb-4 text-[0.65rem] text-copper">
                   {t.social.follow}
                 </div>
-                <SocialLinks lang={lang} size="sm" tone="light" />
+                <div className="flex flex-wrap items-center gap-2">
+                  <SocialLinks lang={lang} size="sm" tone="light" className="gap-1" />
+                  <EmailIconLink email={contactInfo.email} />
+                </div>
               </div>
             </nav>
           </motion.div>

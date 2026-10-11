@@ -48,15 +48,23 @@ body {
   font-family: var(--font-arabic);
 }
 
-/* Compact hero sizing makes room for the page content without a full-screen image. */
+/* The hero stacks its image and copy on phones, then splits into equal columns. */
 .hero-section {
-  min-height: min(620px, calc(100svh - 4.5rem));
+  min-height: 0;
+}
+
+.hero-content {
+  order: 1;
 }
 
 .hero-image-panel {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  order: 2;
+  width: calc(100% - 3rem);
+  height: clamp(11rem, 54vw, 16rem);
+  margin: 0 1.5rem 1.5rem;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .hero-scroll-indicator {
@@ -74,22 +82,28 @@ body {
 .hero-image-overlay {
   background: linear-gradient(
     180deg,
-    rgba(16, 29, 50, 0.45) 0%,
-    rgba(16, 29, 50, 0.76) 54%,
-    rgba(16, 29, 50, 0.94) 100%
+    rgba(16, 29, 50, 0.08) 0%,
+    rgba(16, 29, 50, 0.28) 100%
   );
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .hero-section {
-    min-height: min(680px, calc(100svh - 4rem));
+    min-height: min(620px, calc(100svh - 4.5rem));
   }
-}
 
-@media (min-width: 1024px) {
+  .hero-content {
+    order: 0;
+  }
+
   .hero-image-panel {
-    inset: 1.25rem 0 1.25rem auto;
-    width: 48%;
+    position: absolute;
+    inset: 1rem 0 1rem auto;
+    order: 0;
+    width: 46%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
   }
 
   .hero-image-overlay {
@@ -103,7 +117,7 @@ body {
   }
 
   [dir="rtl"] .hero-image-panel {
-    inset: 1.25rem auto 1.25rem 0;
+    inset: 1rem auto 1rem 0;
   }
 
   [dir="rtl"] .hero-image-overlay {
@@ -114,6 +128,17 @@ body {
       rgba(16, 29, 50, 0.16) 72%,
       rgba(16, 29, 50, 0.18) 100%
     );
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-image-panel {
+    inset: 1.25rem 0 1.25rem auto;
+    width: 48%;
+  }
+
+  [dir="rtl"] .hero-image-panel {
+    inset: 1.25rem auto 1.25rem 0;
   }
 }
 
