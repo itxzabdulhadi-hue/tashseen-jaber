@@ -68,6 +68,9 @@ export interface Translation {
     rights: string;
     location: string;
   };
+  social: {
+    follow: string;
+  };
 }
 
 export const translations: Record<Language, Translation> = {
@@ -232,6 +235,9 @@ export const translations: Record<Language, Translation> = {
       rights: "All rights reserved.",
       location: "Baghdad · Iraq",
     },
+    social: {
+      follow: "Follow Us",
+    },
   },
   ar: {
     nav: {
@@ -393,6 +399,9 @@ export const translations: Record<Language, Translation> = {
       contact: "تواصل",
       rights: "جميع الحقوق محفوظة.",
       location: "بغداد · العراق",
+    },
+    social: {
+      follow: "تابعنا",
     },
   },
 };

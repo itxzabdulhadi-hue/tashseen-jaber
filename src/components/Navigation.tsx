@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
+import SocialLinks from "./SocialIcons";
 import type { Translation, Language } from "../i18n";
 
 interface NavigationProps {
@@ -172,6 +173,13 @@ export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
               >
                 {t.nav.cta}
               </a>
+
+              <div className="mt-8 pt-8 border-t border-frost/10">
+                <div className="eyebrow text-copper-light text-[0.65rem] mb-4">
+                  {t.social.follow}
+                </div>
+                <SocialLinks lang={lang} size="sm" />
+              </div>
             </nav>
           </motion.div>
         )}

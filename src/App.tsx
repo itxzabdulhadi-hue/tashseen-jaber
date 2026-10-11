@@ -41,7 +41,7 @@ export default function App() {
         <Facilities t={t} />
         <Precision t={t} />
         <Industries t={t} />
-        <Contact t={t} />
+        <Contact t={t} lang={lang} />
       </main>
       <Footer t={t} lang={lang} onLangChange={setLang} />
     </div>

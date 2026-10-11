@@ -1,4 +1,6 @@
 import Logo from "./Logo";
+import SocialLinks from "./SocialIcons";
+import { contactInfo } from "../social";
 import type { Translation, Language } from "../i18n";
 
 interface FooterProps {
@@ -26,6 +28,14 @@ export default function Footer({ t, lang, onLangChange }: FooterProps) {
               <span className="eyebrow text-frost/50 text-[0.6rem]">
                 {t.footer.location}
               </span>
+            </div>
+
+            {/* Social */}
+            <div className="mt-10">
+              <div className="eyebrow text-copper-light text-[0.65rem] mb-5">
+                {t.social.follow}
+              </div>
+              <SocialLinks lang={lang} />
             </div>
           </div>
 
@@ -62,25 +72,25 @@ export default function Footer({ t, lang, onLangChange }: FooterProps) {
             </div>
             <div className="space-y-3 text-frost/70 text-sm">
               <a
-                href="tel:+9647768677775"
+                href={`tel:${contactInfo.phone}`}
                 className="block hover:text-copper-light transition-colors duration-300"
                 dir="ltr"
               >
-                +964 776 867 7775
+                {contactInfo.phoneDisplay}
               </a>
               <a
-                href="mailto:info@tahseenjaber.com"
+                href={`mailto:${contactInfo.email}`}
                 className="block hover:text-copper-light transition-colors duration-300"
                 dir="ltr"
               >
-                info@tahseenjaber.com
+                {contactInfo.email}
               </a>
               <a
-                href="mailto:Shuaib@tahseenjaber.com"
+                href={`mailto:${contactInfo.emailAlt}`}
                 className="block hover:text-copper-light transition-colors duration-300"
                 dir="ltr"
               >
-                Shuaib@tahseenjaber.com
+                {contactInfo.emailAlt}
               </a>
               <p className="pt-2 leading-relaxed">
                 Uuayrij Industrial Area<br />Baghdad, Iraq

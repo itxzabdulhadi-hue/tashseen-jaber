@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
-import type { Translation } from "../i18n";
+import SocialLinks from "./SocialIcons";
+import { contactInfo } from "../social";
+import type { Translation, Language } from "../i18n";
 
 interface ContactProps {
   t: Translation;
+  lang: Language;
 }
 
-export default function Contact({ t }: ContactProps) {
+export default function Contact({ t, lang }: ContactProps) {
   return (
     <section
       id="contact"
@@ -47,13 +50,13 @@ export default function Contact({ t }: ContactProps) {
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-5">
-                <a href="mailto:info@tahseenjaber.com" className="btn-primary">
+                <a href={`mailto:${contactInfo.email}`} className="btn-primary">
                   {t.contact.primaryCta}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
-                <a href="tel:+9647768677775" className="btn-ghost">
+                <a href={`tel:${contactInfo.phone}`} className="btn-ghost">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -89,11 +92,11 @@ export default function Contact({ t }: ContactProps) {
                     {t.contact.phone}
                   </div>
                   <a
-                    href="tel:+9647768677775"
+                    href={`tel:${contactInfo.phone}`}
                     className="font-display text-frost text-xl lg:text-2xl font-light hover:text-copper-light transition-colors duration-500"
                     dir="ltr"
                   >
-                    +964 776 867 7775
+                    {contactInfo.phoneDisplay}
                   </a>
                 </div>
 
@@ -105,18 +108,18 @@ export default function Contact({ t }: ContactProps) {
                   </div>
                   <div className="space-y-2">
                     <a
-                      href="mailto:info@tahseenjaber.com"
+                      href={`mailto:${contactInfo.email}`}
                       className="block font-display text-frost text-lg lg:text-xl font-light hover:text-copper-light transition-colors duration-500"
                       dir="ltr"
                     >
-                      info@tahseenjaber.com
+                      {contactInfo.email}
                     </a>
                     <a
-                      href="mailto:Shuaib@tahseenjaber.com"
+                      href={`mailto:${contactInfo.emailAlt}`}
                       className="block text-frost/70 text-base hover:text-copper-light transition-colors duration-500"
                       dir="ltr"
                     >
-                      Shuaib@tahseenjaber.com
+                      {contactInfo.emailAlt}
                     </a>
                   </div>
                 </div>
@@ -128,6 +131,15 @@ export default function Contact({ t }: ContactProps) {
                   <span className="eyebrow text-frost/60 text-[0.6rem]">
                     Operational facility · Baghdad
                   </span>
+                </div>
+
+                <div className="h-px bg-frost/10" />
+
+                <div>
+                  <div className="eyebrow text-copper-light text-[0.65rem] mb-4">
+                    {t.social.follow}
+                  </div>
+                  <SocialLinks lang={lang} size="sm" />
                 </div>
               </div>
             </div>
