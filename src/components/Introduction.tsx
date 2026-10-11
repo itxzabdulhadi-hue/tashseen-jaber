@@ -16,29 +16,29 @@ export default function Introduction({ t }: IntroductionProps) {
 
   return (
     <section id="about" ref={ref} className="relative bg-frost overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-24 lg:py-36">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-20 lg:py-24">
         {/* Top eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="flex items-center gap-4 mb-16"
+          className="flex items-center gap-4 mb-10 lg:mb-12"
         >
           <div className="h-px w-12 bg-copper" />
           <span className="eyebrow text-copper">{t.intro.eyebrow}</span>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 relative"
+            className="relative flex w-full lg:min-h-[480px]"
           >
-            <div className="relative aspect-[4/5] overflow-hidden bg-silver">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-silver lg:h-full lg:aspect-auto">
               <motion.img
                 style={{ y: imageY }}
                 src="/images/facility-intro.webp"
@@ -78,7 +78,7 @@ export default function Introduction({ t }: IntroductionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="lg:col-span-5"
+            className="flex flex-col justify-center"
           >
             <h2 className="font-display text-midnight text-[clamp(2.25rem,4.5vw,4rem)] leading-[1.05] font-light">
               {t.intro.headline}

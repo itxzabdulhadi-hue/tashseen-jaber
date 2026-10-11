@@ -6,6 +6,13 @@ interface HeroProps {
 }
 
 export default function Hero({ t }: HeroProps) {
+  const continuation = t.hero.headline2.trim();
+  const accent = t.hero.accent.trim();
+  const hasAccent = continuation.endsWith(accent);
+  const headlineLead = hasAccent
+    ? continuation.slice(0, -accent.length).trim()
+    : continuation;
+
   return (
     <section
       id="home"
@@ -36,8 +43,8 @@ export default function Hero({ t }: HeroProps) {
         <div className="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-glacier/40 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-10 pt-10 lg:px-12 lg:pb-12 lg:pt-12">
-        <div className="max-w-4xl lg:max-w-[58%]">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-8 pt-8 lg:px-12 lg:pb-10 lg:pt-10">
+        <div className="max-w-4xl lg:max-w-[50%]">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +57,7 @@ export default function Hero({ t }: HeroProps) {
           </motion.div>
 
           {/* Headline */}
-          <h1 className="font-display text-[clamp(2.5rem,5.8vw,6rem)] font-light leading-[0.98] tracking-[-0.02em] text-frost">
+          <h1 className="font-display text-[clamp(2.5rem,4.6vw,4.5rem)] font-light leading-[0.98] tracking-[-0.02em] text-frost">
             <motion.span
               initial={{ opacity: 0, y: 44 }}
               animate={{ opacity: 1, y: 0 }}
@@ -65,10 +72,9 @@ export default function Hero({ t }: HeroProps) {
               transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
-              {t.hero.headline2.split(".")[0]}.{" "}
-              <span className="italic text-copper-light">
-                {t.hero.headline2.split(".")[1]?.trim() || t.hero.accent}
-              </span>
+              {headlineLead}
+              {headlineLead && hasAccent ? " " : null}
+              {hasAccent && <span className="italic text-copper-light">{accent}</span>}
             </motion.span>
           </h1>
 
@@ -105,7 +111,7 @@ export default function Hero({ t }: HeroProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.25 }}
-            className="mt-9 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-5 border-t border-frost/15 pt-5 sm:mt-10 sm:gap-x-8 lg:mt-11 lg:grid-cols-4 lg:gap-6"
+            className="mt-8 grid max-w-full grid-cols-2 gap-x-5 gap-y-4 border-t border-frost/15 pt-4 sm:mt-9 sm:gap-x-6 lg:mt-9 lg:grid-cols-4 lg:gap-x-4 lg:gap-y-4"
           >
             {[
               { label: "Location", value: "Baghdad · IQ" },
@@ -131,7 +137,7 @@ export default function Hero({ t }: HeroProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.7 }}
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-frost/60 sm:flex"
+        className="hero-scroll-indicator hidden flex-col items-center gap-2 text-frost/70 lg:flex"
       >
         <span className="eyebrow text-[0.6rem]">{t.hero.scroll}</span>
         <motion.div

@@ -50,13 +50,25 @@ body {
 
 /* Compact hero sizing makes room for the page content without a full-screen image. */
 .hero-section {
-  min-height: min(720px, calc(100svh - 4.5rem));
+  min-height: min(620px, calc(100svh - 4.5rem));
 }
 
 .hero-image-panel {
   position: absolute;
   inset: 0;
   overflow: hidden;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  right: 2rem;
+  bottom: 1.5rem;
+  text-shadow: 0 1px 12px rgba(16, 29, 50, 0.75);
+}
+
+[dir="rtl"] .hero-scroll-indicator {
+  right: auto;
+  left: 2rem;
 }
 
 .hero-image-overlay {
@@ -70,14 +82,14 @@ body {
 
 @media (max-width: 767px) {
   .hero-section {
-    min-height: min(700px, calc(100svh - 4rem));
+    min-height: min(680px, calc(100svh - 4rem));
   }
 }
 
 @media (min-width: 1024px) {
   .hero-image-panel {
-    inset: 1.25rem 1.25rem 1.25rem auto;
-    width: 44%;
+    inset: 1.25rem 0 1.25rem auto;
+    width: 48%;
   }
 
   .hero-image-overlay {
@@ -91,7 +103,7 @@ body {
   }
 
   [dir="rtl"] .hero-image-panel {
-    inset: 1.25rem auto 1.25rem 1.25rem;
+    inset: 1.25rem auto 1.25rem 0;
   }
 
   [dir="rtl"] .hero-image-overlay {

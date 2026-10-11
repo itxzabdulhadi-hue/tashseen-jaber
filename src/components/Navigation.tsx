@@ -21,14 +21,7 @@ const navItems = [
 ] as const;
 
 export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -40,9 +33,7 @@ export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`sticky top-0 z-50 h-16 w-full border-b border-silver/70 bg-white text-midnight transition-shadow duration-500 md:h-[4.5rem] ${
-          scrolled ? "shadow-[0_10px_30px_rgba(16,29,50,0.08)]" : "shadow-none"
-        }`}
+        className="relative z-50 h-16 w-full border-b border-silver/70 bg-white text-midnight shadow-none md:h-[4.5rem]"
       >
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-12">
           <a
