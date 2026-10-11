@@ -41,7 +41,7 @@ export default function Introduction({ t }: IntroductionProps) {
             <div className="relative aspect-[4/5] overflow-hidden bg-silver">
               <motion.img
                 style={{ y: imageY }}
-                src="/images/facility-intro.jpg"
+                src="/images/facility-intro.webp"
                 alt="Cold storage facility"
                 className="absolute inset-0 w-full h-[120%] object-cover cinematic-zoom"
                 loading="lazy"

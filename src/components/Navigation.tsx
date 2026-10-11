@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 import SocialLinks from "./SocialIcons";
+import { contactInfo, headerSocialKeys } from "../social";
 import type { Translation, Language } from "../i18n";
 
 interface NavigationProps {
@@ -45,6 +46,29 @@ export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
             : "bg-transparent py-6"
         }`}
       >
+        {/* Utility strip — wide screens only, collapses once the page scrolls */}
+        <div
+          className={`hidden lg:block overflow-hidden transition-all duration-500 ${
+            scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
+          }`}
+        >
+          <div className="max-w-[1440px] mx-auto px-6 lg:px-12 h-10 flex items-center justify-between gap-6">
+            <a
+              href={`tel:${contactInfo.phone}`}
+              dir="ltr"
+              className="text-frost/55 hover:text-copper-light text-xs tracking-[0.18em] transition-colors duration-300"
+            >
+              {contactInfo.phoneDisplay}
+            </a>
+            <div className="flex items-center gap-4">
+              <span className="eyebrow text-frost/45 text-[0.6rem]">
+                {t.social.follow}
+              </span>
+              <SocialLinks lang={lang} size="sm" only={headerSocialKeys} className="gap-2" />
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between gap-8">
           {/* Logo */}
           <a href="#home" className="flex-shrink-0 block" aria-label="Tahseen Jaber Cold Storage">

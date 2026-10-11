@@ -17,7 +17,7 @@ export default function Contact({ t, lang }: ContactProps) {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/facility-1.jpg"
+          src="/images/facility-1.webp"
           alt=""
           loading="lazy"
           className="w-full h-full object-cover opacity-25"

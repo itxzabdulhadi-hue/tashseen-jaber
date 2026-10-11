@@ -77,6 +77,18 @@ export const socialLinks: SocialLink[] = [
 /** Canonical site URL — used for canonical tags and structured data. */
 export const siteUrl = "https://tahseenjaber.com";
 
+/**
+ * The four channels shown in the header utility strip. Keeping the header to
+ * four icons keeps the top bar quiet even on narrow laptops — WhatsApp,
+ * YouTube and TikTok still appear in the footer, contact card and mobile menu.
+ */
+export const headerSocialKeys: SocialKey[] = [
+  "facebook",
+  "instagram",
+  "x",
+  "linkedin",
+];
+
 /* -------------------------------------------------------------------------- */
 /*  Contact channels (already used across the site)                           */
 /* -------------------------------------------------------------------------- */

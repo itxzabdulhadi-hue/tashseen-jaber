@@ -44,6 +44,8 @@ interface SocialLinksProps {
   className?: string;
   /** Size of each tap target. */
   size?: "sm" | "md";
+  /** Render only these channels, in this order. Defaults to all of them. */
+  only?: SocialKey[];
 }
 
 /**
@@ -53,12 +55,19 @@ export default function SocialLinks({
   lang,
   className,
   size = "md",
+  only,
 }: SocialLinksProps) {
-  if (socialLinks.length === 0) return null;
+  const items = only
+    ? only
+        .map((key) => socialLinks.find((link) => link.key === key))
+        .filter((link): link is (typeof socialLinks)[number] => Boolean(link))
+    : socialLinks;
+
+  if (items.length === 0) return null;
 
   return (
     <ul className={cn("flex flex-wrap items-center gap-3", className)}>
-      {socialLinks.map((link) => {
+      {items.map((link) => {
         const label = lang === "ar" ? link.labelAr : link.label;
         return (
           <li key={link.key}>

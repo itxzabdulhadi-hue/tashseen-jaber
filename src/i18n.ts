@@ -36,7 +36,17 @@ export interface Translation {
     eyebrow: string;
     headline: string;
     description: string;
+    /** Label above the carousel caption. */
+    featured: string;
+    /** Carousel slide captions. */
     captions: string[];
+    /** Captions for the smaller companion row. */
+    gallery: string[];
+    prevSlide: string;
+    nextSlide: string;
+    goToSlide: string;
+    pauseSlides: string;
+    playSlides: string;
   };
   precision: {
     eyebrow: string;
@@ -70,6 +80,35 @@ export interface Translation {
   };
   social: {
     follow: string;
+  };
+  floating: {
+    label: string;
+  };
+  inquiry: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    phone: string;
+    phonePlaceholder: string;
+    company: string;
+    companyPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    optional: string;
+    required: string;
+    invalidEmail: string;
+    submit: string;
+    submitting: string;
+    successTitle: string;
+    successBody: string;
+    sendAnother: string;
+    errorTitle: string;
+    errorBody: string;
+    privacy: string;
   };
 }
 
@@ -150,12 +189,18 @@ export const translations: Record<Language, Translation> = {
       headline: "Infrastructure Built for Preservation.",
       description:
         "A glimpse inside our cold storage facility — engineered spaces, organized operations, and dependable refrigeration systems that protect the integrity of every product entrusted to us.",
+      featured: "Featured",
       captions: [
         "Insulated Cold-Room Architecture",
         "Industrial Refrigeration Systems",
         "Organized Storage Operations",
-        "Loading & Handling Areas",
       ],
+      gallery: ["Organized Storage Aisle", "Storage Aisles & Racking"],
+      prevSlide: "Previous slide",
+      nextSlide: "Next slide",
+      goToSlide: "Go to slide",
+      pauseSlides: "Pause slideshow",
+      playSlides: "Play slideshow",
     },
     precision: {
       eyebrow: "Precision & Preservation",
@@ -238,6 +283,36 @@ export const translations: Record<Language, Translation> = {
     social: {
       follow: "Follow Us",
     },
+    floating: {
+      label: "Send Us a Message",
+    },
+    inquiry: {
+      eyebrow: "Inquiry",
+      headline: "Send Us Your Requirements.",
+      body: "Tell us what you need to store. Our team will come back with the right storage option for your products.",
+      name: "Full Name",
+      namePlaceholder: "Your name",
+      email: "Email Address",
+      emailPlaceholder: "you@company.com",
+      phone: "Phone Number",
+      phonePlaceholder: "+964 ...",
+      company: "Company / Organization",
+      companyPlaceholder: "Company name",
+      message: "Your Requirements",
+      messagePlaceholder:
+        "Products to store, expected volume, temperature requirements and duration...",
+      optional: "optional",
+      required: "This field is required.",
+      invalidEmail: "Please enter a valid email address.",
+      submit: "Send Inquiry",
+      submitting: "Sending...",
+      successTitle: "Thank you — your inquiry has been sent.",
+      successBody: "Our team will review your requirements and get back to you shortly.",
+      sendAnother: "Send another inquiry",
+      errorTitle: "We couldn't send your message.",
+      errorBody: "Please try again, or reach us directly at",
+      privacy: "We use your details only to respond to your inquiry.",
+    },
   },
   ar: {
     nav: {
@@ -315,12 +390,18 @@ export const translations: Record<Language, Translation> = {
       headline: "بُنية تحتية بُنيت للحفظ.",
       description:
         "لمحة داخل منشأتنا للتخزين المبرد — مساحات هندسية، وعمليات منظمة، وأنظمة تبريد موثوقة تحمي سلامة كل منتج يُسلَّم إلينا.",
+      featured: "مميّز",
       captions: [
         "هندسة الغرف المُبرَّدة المعزولة",
         "أنظمة التبريد الصناعية",
         "عمليات تخزين منظمة",
-        "مناطق التحميل والمناولة",
       ],
+      gallery: ["ممر تخزين منظم", "ممرات وأرفف التخزين"],
+      prevSlide: "الشريحة السابقة",
+      nextSlide: "الشريحة التالية",
+      goToSlide: "الانتقال إلى الشريحة رقم",
+      pauseSlides: "إيقاف العرض التلقائي",
+      playSlides: "تشغيل العرض التلقائي",
     },
     precision: {
       eyebrow: "الدقة والحفظ",
@@ -402,6 +483,36 @@ export const translations: Record<Language, Translation> = {
     },
     social: {
       follow: "تابعنا",
+    },
+    floating: {
+      label: "أرسل لنا رسالة",
+    },
+    inquiry: {
+      eyebrow: "استفسار",
+      headline: "أرسل لنا متطلباتك.",
+      body: "أخبرنا بما تحتاج إلى تخزينه، وسيعود إليك فريقنا بالخيار الأنسب لمنتجاتك.",
+      name: "الاسم الكامل",
+      namePlaceholder: "اسمك",
+      email: "البريد الإلكتروني",
+      emailPlaceholder: "you@company.com",
+      phone: "رقم الهاتف",
+      phonePlaceholder: "+964 ...",
+      company: "الشركة / المؤسسة",
+      companyPlaceholder: "اسم الشركة",
+      message: "متطلباتك",
+      messagePlaceholder:
+        "المنتجات المطلوب تخزينها، الحجم المتوقع، متطلبات الحرارة، والمدة...",
+      optional: "اختياري",
+      required: "هذا الحقل مطلوب.",
+      invalidEmail: "يرجى إدخال بريد إلكتروني صحيح.",
+      submit: "إرسال الاستفسار",
+      submitting: "جارٍ الإرسال...",
+      successTitle: "شكرًا لك — تم إرسال استفسارك.",
+      successBody: "سيراجع فريقنا متطلباتك ويتواصل معك في أقرب وقت.",
+      sendAnother: "إرسال استفسار آخر",
+      errorTitle: "تعذّر إرسال رسالتك.",
+      errorBody: "يرجى المحاولة مرة أخرى، أو التواصل معنا مباشرة على",
+      privacy: "نستخدم بياناتك للرد على استفسارك فقط.",
     },
   },
 };

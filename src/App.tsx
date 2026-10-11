@@ -8,6 +8,8 @@ import Facilities from "./components/Facilities";
 import Precision from "./components/Precision";
 import Industries from "./components/Industries";
 import Contact from "./components/Contact";
+import InquiryForm from "./components/InquiryForm";
+import FloatingMessage from "./components/FloatingMessage";
 import Footer from "./components/Footer";
 import Marquee from "./components/Marquee";
 
@@ -38,12 +40,14 @@ export default function App() {
           ]}
         />
         <Solutions t={t} />
-        <Facilities t={t} />
+        <Facilities t={t} lang={lang} />
         <Precision t={t} />
         <Industries t={t} />
         <Contact t={t} lang={lang} />
+        <InquiryForm t={t} />
       </main>
       <Footer t={t} lang={lang} onLangChange={setLang} />
+      <FloatingMessage t={t} />
     </div>
   );
 }
