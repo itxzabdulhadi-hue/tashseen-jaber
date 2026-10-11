@@ -6,12 +6,12 @@ interface SolutionsProps {
 }
 
 const solutionImages = [
-  "/images/solution-chilled.jpg",
-  "/images/solution-frozen.jpg",
-  "/images/solution-produce.jpg",
-  "/images/solution-meat.jpg",
-  "/images/solution-seafood.jpg",
-  "/images/solution-pharma.jpg",
+  "/images/solution-chilled.webp",
+  "/images/solution-frozen.webp",
+  "/images/solution-produce.webp",
+  "/images/solution-meat.webp",
+  "/images/solution-seafood.webp",
+  "/images/solution-pharma.webp",
 ];
 
 export default function Solutions({ t }: SolutionsProps) {

@@ -18,7 +18,7 @@ export default function Hero({ t }: HeroProps) {
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
-          src="/images/hero-warehouse.jpg"
+          src="/images/hero-warehouse.webp"
           alt="Refrigerated warehouse interior"
           className="w-full h-full object-cover"
           loading="eager"

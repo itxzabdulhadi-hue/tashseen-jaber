@@ -6,12 +6,12 @@ interface IndustriesProps {
 }
 
 const industryImages = [
-  "/images/solution-produce.jpg", // agriculture
-  "/images/facility-intro.jpg",   // distribution
-  "/images/solution-meat.jpg",    // meat
-  "/images/solution-seafood.jpg", // seafood
-  "/images/solution-frozen.jpg",  // frozen food
-  "/images/solution-pharma.jpg",  // pharma
+  "/images/solution-produce.webp", // agriculture
+  "/images/facility-intro.webp",   // distribution
+  "/images/solution-meat.webp",    // meat
+  "/images/solution-seafood.webp", // seafood
+  "/images/solution-frozen.webp",  // frozen food
+  "/images/solution-pharma.webp",  // pharma
 ];
 
 export default function Industries({ t }: IndustriesProps) {
