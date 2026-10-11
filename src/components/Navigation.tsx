@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 import SocialLinks from "./SocialIcons";
-import { contactInfo } from "../social";
+import { contactInfo, headerSocialKeys } from "../social";
 import type { Translation, Language } from "../i18n";
 
 interface NavigationProps {
@@ -58,6 +58,35 @@ export default function Navigation({ t, lang, onLangChange }: NavigationProps) {
           </nav>
 
           <div className="flex flex-shrink-0 items-center gap-2 sm:gap-3 md:gap-4">
+            <div className="hidden items-center gap-1 lg:flex">
+              <SocialLinks
+                lang={lang}
+                size="sm"
+                tone="light"
+                only={headerSocialKeys}
+                className="gap-1"
+              />
+              <a
+                href={`mailto:${contactInfo.email}`}
+                title="Email"
+                aria-label={`Email ${contactInfo.email}`}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-midnight/10 bg-midnight/[0.03] text-midnight/60 transition-all duration-300 hover:border-copper hover:bg-copper hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-copper-light focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              >
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </a>
+            </div>
+
             <a
               href={`tel:${contactInfo.phone}`}
               dir="ltr"

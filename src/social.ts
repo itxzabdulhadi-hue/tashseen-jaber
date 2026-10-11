@@ -34,19 +34,19 @@ export const socialLinks: SocialLink[] = [
     key: "facebook",
     label: "Facebook",
     labelAr: "فيسبوك",
-    href: "https://www.facebook.com/tahseenjaber", // TODO: real Facebook page
+    href: "https://www.facebook.com/Tahseenjaber.Coldstorage?mibextid=wwXIfr&rdid=326uZ0kFUuFoyAfF&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19xUcfxzZj%2F%3Fmibextid%3DwwXIfr",
   },
   {
     key: "instagram",
     label: "Instagram",
     labelAr: "إنستغرام",
-    href: "https://www.instagram.com/tahseenjaber", // TODO: real Instagram profile
+    href: "https://www.instagram.com/tahseenjaber.coldstorage?obrf=cHBvdGg3Njl6cHFn",
   },
   {
     key: "whatsapp",
     label: "WhatsApp",
     labelAr: "واتساب",
-    href: "https://wa.me/9647768677775", // WhatsApp Business line (+964 776 867 7775)
+    href: "https://api.whatsapp.com/send/?phone=9647768677775&text&type=phone_number&app_absent=0",
   },
   {
     key: "linkedin",
@@ -77,16 +77,11 @@ export const socialLinks: SocialLink[] = [
 /** Canonical site URL — used for canonical tags and structured data. */
 export const siteUrl = "https://tahseenjaber.com";
 
-/**
- * The four channels shown in the header utility strip. Keeping the header to
- * four icons keeps the top bar quiet even on narrow laptops — WhatsApp,
- * YouTube and TikTok still appear in the footer, contact card and mobile menu.
- */
+/** Social profiles shown in the desktop header row. */
 export const headerSocialKeys: SocialKey[] = [
   "facebook",
   "instagram",
-  "x",
-  "linkedin",
+  "whatsapp",
 ];
 
 /* -------------------------------------------------------------------------- */
