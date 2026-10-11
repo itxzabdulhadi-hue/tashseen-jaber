@@ -9,58 +9,60 @@ export default function Hero({ t }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full overflow-hidden flex items-center"
+      className="hero-section relative flex w-full items-center overflow-hidden bg-midnight"
       aria-label="Hero"
     >
-      {/* Background image */}
+      {/* A contained image panel keeps the opening section lighter and shorter. */}
       <div className="absolute inset-0">
-        <motion.img
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
-          src="/images/hero-warehouse.webp"
-          alt="Refrigerated warehouse interior"
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 gradient-overlay-dark" />
-        <div className="mist-overlay mist-anim" />
-        <div className="icy-sweep" />
+        <div className="hero-image-panel">
+          <motion.img
+            initial={{ scale: 1.08, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            src="/images/hero-warehouse.webp"
+            alt="Refrigerated warehouse interior"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
+          <div className="hero-image-overlay absolute inset-0" />
+          <div className="mist-overlay mist-anim" />
+          <div className="icy-sweep" />
+        </div>
       </div>
 
       {/* Architectural lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-glacier to-transparent" />
+      <div className="pointer-events-none absolute inset-0 opacity-15">
+        <div className="absolute right-0 top-1/4 h-px w-full bg-gradient-to-r from-transparent via-glacier to-transparent" />
         <div className="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-glacier/40 to-transparent" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-12 pt-32 pb-20">
-        <div className="max-w-5xl">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-10 pt-10 lg:px-12 lg:pb-12 lg:pt-12">
+        <div className="max-w-4xl lg:max-w-[58%]">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="flex items-center gap-4 mb-10"
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="mb-6 flex items-center gap-4"
           >
-            <div className="h-px w-12 bg-copper-light" />
+            <div className="h-px w-10 bg-copper-light" />
             <span className="eyebrow text-frost/80">{t.hero.eyebrow}</span>
           </motion.div>
 
           {/* Headline */}
-          <h1 className="font-display text-frost text-[clamp(2.75rem,7.5vw,7.5rem)] leading-[0.95] tracking-[-0.02em] font-light">
+          <h1 className="font-display text-[clamp(2.5rem,5.8vw,6rem)] font-light leading-[0.98] tracking-[-0.02em] text-frost">
             <motion.span
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 44 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
               {t.hero.headline1}
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 44 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
               {t.hero.headline2.split(".")[0]}.{" "}
@@ -72,20 +74,20 @@ export default function Hero({ t }: HeroProps) {
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="mt-10 max-w-2xl text-frost/70 text-base lg:text-lg leading-relaxed font-light"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-7 max-w-xl text-base font-light leading-relaxed text-frost/75 lg:text-lg"
           >
             {t.hero.description}
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.4 }}
-            className="mt-12 flex flex-wrap items-center gap-5"
+            transition={{ duration: 0.8, delay: 0.95 }}
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
             <a href="#facilities" className="btn-primary">
               {t.hero.primaryCta}
@@ -102,8 +104,8 @@ export default function Hero({ t }: HeroProps) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.4, delay: 1.8 }}
-            className="mt-20 lg:mt-28 pt-8 border-t border-frost/15 grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl"
+            transition={{ duration: 1, delay: 1.25 }}
+            className="mt-9 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-5 border-t border-frost/15 pt-5 sm:mt-10 sm:gap-x-8 lg:mt-11 lg:grid-cols-4 lg:gap-6"
           >
             {[
               { label: "Location", value: "Baghdad · IQ" },
@@ -112,10 +114,10 @@ export default function Hero({ t }: HeroProps) {
               { label: "Approach", value: "Precision" },
             ].map((spec, i) => (
               <div key={i}>
-                <div className="eyebrow text-copper-light text-[0.65rem] mb-2">
+                <div className="eyebrow mb-2 text-[0.6rem] text-copper-light">
                   {spec.label}
                 </div>
-                <div className="font-display text-frost text-xl lg:text-2xl font-light">
+                <div className="font-display text-xl font-light text-frost lg:text-2xl">
                   {spec.value}
                 </div>
               </div>
@@ -128,14 +130,14 @@ export default function Hero({ t }: HeroProps) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-frost/60"
+        transition={{ duration: 0.8, delay: 1.7 }}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-frost/60 sm:flex"
       >
         <span className="eyebrow text-[0.6rem]">{t.hero.scroll}</span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 7, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-          className="h-12 w-px bg-gradient-to-b from-frost/60 to-transparent"
+          className="h-8 w-px bg-gradient-to-b from-frost/60 to-transparent"
         />
       </motion.div>
     </section>

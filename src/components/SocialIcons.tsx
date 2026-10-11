@@ -44,6 +44,8 @@ interface SocialLinksProps {
   className?: string;
   /** Size of each tap target. */
   size?: "sm" | "md";
+  /** Surface the icons sit on. */
+  tone?: "dark" | "light";
   /** Render only these channels, in this order. Defaults to all of them. */
   only?: SocialKey[];
 }
@@ -55,6 +57,7 @@ export default function SocialLinks({
   lang,
   className,
   size = "md",
+  tone = "dark",
   only,
 }: SocialLinksProps) {
   const items = only
@@ -78,9 +81,12 @@ export default function SocialLinks({
               title={label}
               aria-label={`${label} — Tahseen Jaber Cold Storage`}
               className={cn(
-                "group relative flex items-center justify-center rounded-full border border-frost/15 bg-frost/[0.04] text-frost/70",
+                "group relative flex items-center justify-center rounded-full border",
+                tone === "light"
+                  ? "border-midnight/10 bg-midnight/[0.03] text-midnight/60 focus-visible:ring-offset-white"
+                  : "border-frost/15 bg-frost/[0.04] text-frost/70 focus-visible:ring-offset-midnight",
                 "transition-all duration-500 hover:border-copper hover:bg-copper hover:text-frost",
-                "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-copper-light focus-visible:ring-offset-2 focus-visible:ring-offset-midnight",
+                "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-copper-light focus-visible:ring-offset-2",
                 size === "md" ? "w-11 h-11" : "w-9 h-9"
               )}
             >

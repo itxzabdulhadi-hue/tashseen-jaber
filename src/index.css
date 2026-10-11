@@ -48,6 +48,63 @@ body {
   font-family: var(--font-arabic);
 }
 
+/* Compact hero sizing makes room for the page content without a full-screen image. */
+.hero-section {
+  min-height: min(720px, calc(100svh - 4.5rem));
+}
+
+.hero-image-panel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-image-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 29, 50, 0.45) 0%,
+    rgba(16, 29, 50, 0.76) 54%,
+    rgba(16, 29, 50, 0.94) 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: min(700px, calc(100svh - 4rem));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-image-panel {
+    inset: 1.25rem 1.25rem 1.25rem auto;
+    width: 44%;
+  }
+
+  .hero-image-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(16, 29, 50, 0.84) 0%,
+      rgba(16, 29, 50, 0.48) 28%,
+      rgba(16, 29, 50, 0.16) 72%,
+      rgba(16, 29, 50, 0.18) 100%
+    );
+  }
+
+  [dir="rtl"] .hero-image-panel {
+    inset: 1.25rem auto 1.25rem 1.25rem;
+  }
+
+  [dir="rtl"] .hero-image-overlay {
+    background: linear-gradient(
+      -90deg,
+      rgba(16, 29, 50, 0.84) 0%,
+      rgba(16, 29, 50, 0.48) 28%,
+      rgba(16, 29, 50, 0.16) 72%,
+      rgba(16, 29, 50, 0.18) 100%
+    );
+  }
+}
+
 .font-display {
   font-family: var(--font-display);
   font-weight: 400;
